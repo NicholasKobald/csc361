@@ -4,12 +4,12 @@ import sys
 
 
 
-def main(path, port):
+def main(path, ip,  port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                 
 
-    s.connect(('10.0.0.1', 80))
+    s.connect((ip, port))
 
-    s.sendall("GET {} HTTP/1.1\n\n".format(path))
+    s.sendall("GET {} HTTP/1.1\r\n\r\n".format(path))
 
     all_responses = [] 
     while True:
