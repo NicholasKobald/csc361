@@ -12,7 +12,7 @@ serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print("host name is", socket.gethostname())
 print('running on port 9999')
 serversocket.bind(('', 9999))
-serversocket.listen(5)
+serversocket.listen(1)
 #
 # 
 # command to start things up: sudo mn -x 
@@ -44,7 +44,10 @@ while True:
         
         connectionSocket.close()
     except IOError:
-        pass
+        # Send HTTP response message for file not found
+		connectionSocket.send("HTTP/1.1 404 Not Found\r\n\r\n")
+		connectionSocket.send("<html><head></head><body><h1>404 Not Found</h1></body></html>\r\n")
+        connectionSocket.close() 
         # Send response message for file not found
         # ????????????
         # Close client socket

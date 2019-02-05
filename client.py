@@ -7,7 +7,7 @@ import sys
 def main(path, port):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)                 
 
-    s.connect(("", 80))
+    s.connect(('10.0.0.1', 80))
 
     s.sendall("GET {} HTTP/1.1\n\n".format(path))
 
@@ -24,6 +24,6 @@ def main(path, port):
 
 if  __name__ == "__main__":
     try:
-        main(sys.argv[1], int(sys.argv[2]))
+        main(sys.argv[1], sys.argv[2], int(sys.argv[3]))
     except:
-        print("Usage: python client.py path port_no")
+        print("Err. Usage: python client.py path ip port_no")
