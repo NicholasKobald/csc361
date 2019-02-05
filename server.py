@@ -10,10 +10,12 @@ serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 
 print("host name is", socket.gethostname())
-print('running on port 80')
-serversocket.bind((socket.gethostname(), 80))
+print('running on port 9999')
+serversocket.bind(('', 9999))
 serversocket.listen(5)
-
+#
+# 
+# command to start things up: sudo mn -x 
 # TELUS payment services: 
 # 1-800-777-1888 
 # 
