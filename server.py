@@ -42,9 +42,7 @@ while True:
             connectionSocket.send(outputdata[i].encode())
         connectionSocket.send("\r\n".encode())
         
-        connectionSock
-        
-        et.close()
+        connectionSocket.close()
     except IOError:
         pass
         # Send response message for file not found
